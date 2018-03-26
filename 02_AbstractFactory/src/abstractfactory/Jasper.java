@@ -5,6 +5,7 @@
  */
 package abstractfactory;
 
+import abstractfactory.factory.AbstractFactory;
 import abstractfactory.product.AbstractProductCap;
 import abstractfactory.product.AbstractProductJeans;
 import abstractfactory.product.AbstractProductShoes;
@@ -15,11 +16,22 @@ import abstractfactory.product.AbstractProductTshirt;
  * @author Mikael Kotkavuori
  */
 public class Jasper {
+    private AbstractFactory factory;
     private AbstractProductJeans jeans;
     private AbstractProductTshirt tshirt;
     private AbstractProductCap cap;
     private AbstractProductShoes shoes;
+    
+    public Jasper() { }
 
+    public Jasper(AbstractFactory factory) {
+        this.factory = factory;
+    }
+    
+    public void setFactory(AbstractFactory factory) {
+        this.factory = factory;
+    }
+    
     public AbstractProductJeans getJeans() {
         return jeans;
     }
@@ -52,6 +64,14 @@ public class Jasper {
         this.shoes = shoes;
     }
     
+    public void getDressed() {
+        jeans = factory.createJeans();
+        tshirt = factory.createTshirt();
+        cap = factory.createCap();
+        shoes = factory.createShoes();
+    }
     
-    
+    public String describeClothes() {
+        return jeans.toString() + ", " + tshirt.toString() + ", " + cap.toString() + " ja " + shoes.toString() + ".";
+    }
 }

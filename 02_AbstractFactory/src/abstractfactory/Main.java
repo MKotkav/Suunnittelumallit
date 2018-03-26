@@ -25,16 +25,9 @@ public class Main {
         
         for(AbstractFactory factory : factories) {
             System.out.println("Jasper pukeutuu...");
-            jasper.setJeans(factory.createJeans());
-            jasper.setTshirt(factory.createTshirt());
-            jasper.setCap(factory.createCap());
-            jasper.setShoes(factory.createShoes());
-        
-            System.out.println("Jasperilla on yllään: " + 
-                    jasper.getJeans().toString() + ", " + 
-                    jasper.getTshirt().toString() + ", " +
-                    jasper.getCap().toString() + " ja " +
-                    jasper.getShoes().toString() + ".");
+            jasper.setFactory(factory);
+            jasper.getDressed();
+            System.out.println("Jasperilla on yllään: " + jasper.describeClothes());
         }
     
     }
