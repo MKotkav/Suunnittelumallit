@@ -37,4 +37,9 @@ public class Cpu implements Component {
         throw new UnsupportedOperationException("This component has no children."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public String toString() {
+        return "prosessori";
+    }
+    
 }

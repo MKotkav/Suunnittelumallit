@@ -45,4 +45,9 @@ public class Case implements Component{
         return components.get(index);
     }
     
+    @Override
+    public String toString() {
+        return "kotelo";
+    }
+    
 }
