@@ -7,7 +7,7 @@ package observer;
 
 /**
  *
- * @author User
+ * @author Mikael Kotkavuori
  */
 public class Main {
 
