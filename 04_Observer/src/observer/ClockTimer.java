@@ -5,6 +5,8 @@
  */
 package observer;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -13,35 +15,16 @@ import java.util.Observer;
  * @author Mikael Kotkavuori
  */
 public class ClockTimer extends Observable implements Runnable{
-    private int hour = 0, minute = 0, second = 0;
+    private String time;
+    private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
     
-    
-    public int getHour() {
-        return hour;
-    }
-    
-    public int getMinute() {
-        return minute;
-    }
-    
-    public int getSecond() {
-        return second;
+    public String getTime() {
+        return time;
     }
     
     private void tick() {
-        if(second == 59) {
-            if(minute == 59) {
-                if(hour == 23) {
-                    hour = 0;
-                }
-                else hour++;
-                minute = 0;
-            }
-            else minute++;
-            second = -1;
-        }
-        second++;
-        notifyObservers();
+        Date date = new Date();
+        time = timeFormat.format(date);    
     }
     
     
