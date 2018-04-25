@@ -22,27 +22,19 @@ public class Main {
         hour = new HourHand();
         minute = new MinuteHand();
         second = new SecondHand();
-        
-        
 
-//Deep copy
         clock1 = new DeepClock();
+//        clock1 = new ShallowClock();
+        
         clock1.assemble(hour, minute, second);
         clock1.setTime(1, 2, 3);
         clock2 = (Clock)clock1.clone();
+        
         clock1.setName("deep clock 1");
         clock2.setName("deep clock 2");
-
-//Shallow copy
-//        clock1 = new ShallowClock();
-//        clock1.assemble(hour, minute, second);
-//        clock1.setTime(5, 5, 5);
-//        clock2 = (Clock)clock1.clone();
 //        clock1.setName("shallow clock 1");
 //        clock2.setName("shallow clock 2");
 
-//Threads start
-        
         clockT = new Thread((Runnable)clock1);
         clockT2 = new Thread((Runnable)clock2);
 
